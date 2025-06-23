@@ -31,11 +31,11 @@ const formSchema = z
       errorMap: () => ({ message: 'Select a Govt ID' }),
     }),
     govtIdNumber: z.string().min(5, 'Enter valid ID number'),
-    idProof: z
-      .any()
-      .refine((file) => file instanceof File && file.size > 0, {
-        message: 'Upload ID proof',
-      }),
+    
+    idProof: z.instanceof(File).refine((file) => file.size > 0, {
+  message: 'Upload ID proof',
+}),
+
     gstNo: z
       .string()
       .regex(

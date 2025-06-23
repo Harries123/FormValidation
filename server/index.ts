@@ -10,7 +10,10 @@ dotenv.config();
 const app = express();
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Your Next.js frontend URL
+  credentials: true,
+}));
 
 // Serve uploaded files statically (if needed)
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
@@ -22,8 +25,12 @@ app.use('/api/form', formRouter);
 mongoose
   .connect(process.env.MONGO_URI!)
   .then(() => {
-    app.listen(5000, () => console.log('✅ Server running on http://localhost:5000'));
+    app.listen(5000, () => console.log('Server running on http://localhost:5000'));
   })
   .catch((err) => {
-    console.error('❌ MongoDB connection error:', err);
+    console.error(' MongoDB connection error:', err);
   });
+
+  
+
+

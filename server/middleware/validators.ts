@@ -1,5 +1,7 @@
+import { Request, Response, NextFunction } from 'express';
 import { body, validationResult } from 'express-validator';
-import { Request, Response, NextFunction, RequestHandler } from 'express';
+import { RequestHandler } from 'express';
+
 
 // Middleware to handle validation errors
 const validationMiddleware = (req: Request, res: Response, next: NextFunction) => {
