@@ -149,7 +149,7 @@ export default function SellerRegistrationForm() {
       }
 
       const result = await response.json();
-      console.log('✅ Registered:', result);
+      console.log(' Registered:', result);
       setSuccess(true);
       setFormData({
         name: '',
@@ -167,7 +167,7 @@ export default function SellerRegistrationForm() {
         confirmPassword: '',
       });
     } catch (error) {
-      console.error('❌ Submission Error:', error);
+      console.error(' Submission Error:', error);
       alert('Something went wrong. Please try again.');
     } finally {
       setSubmitting(false);
