@@ -9,19 +9,24 @@ dotenv.config();
 
 const app = express();
 
-// Enable CORS
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Your Next.js frontend URL
-  credentials: true,
+  origin: 'http://localhost:3000', 
 }));
 
-// Serve uploaded files statically (if needed)
+
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// Don't use express.json() for file uploads (handled by multer)
+
+app.get("/", (req: any, res: any) => {
+  return res.json({
+    success: true,
+    message: "hello world"
+  });
+});
+
 app.use('/api/form', formRouter);
 
-// MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URI!)
   .then(() => {
@@ -30,6 +35,7 @@ mongoose
   .catch((err) => {
     console.error(' MongoDB connection error:', err);
   });
+  
 
   
 
