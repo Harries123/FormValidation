@@ -129,7 +129,7 @@ export default function SellerRegistrationForm() {
         }
       }
 
-     const response = await fetch('http://localhost:5000/api/form', {
+     const response = await fetch('https://formvalidation-server-ko5b.onrender.com', {
 
   method: 'POST',
   body: payload,
