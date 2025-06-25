@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: ['http://localhost:5000', "https://formvalidation-76l6.onrender.com"], 
 }));
 
 
@@ -36,6 +36,7 @@ mongoose
     console.error(' MongoDB connection error:', err);
   });
   
+
 
   
 
